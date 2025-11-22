@@ -174,25 +174,62 @@
       outline: none; border-color: #2b6cb0; box-shadow: 0 0 4px rgba(43,108,176,0.5);
     }
 
-    /* ========== FOOTER ========== */
-    footer {
-      background: linear-gradient(to right, #2b6cb0, #68d391);
-      color: #fff; padding: 30px 20px;
-    }
-    .footer-container {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 1100px; margin: auto; gap: 20px; flex-wrap: wrap;
-    }
-    .footer-map {width: 25%; min-width: 200px;}
-    .footer-text {width: 70%;}
-    .footer-quote {font-size: 1.1rem; font-style: italic; margin-bottom: 8px;}
-    .footer-social a {color: #fff; margin-right: 12px; font-size: 1.3rem; transition: color 0.3s ease;}
-    .footer-social a:hover {color: #ffeb99;}
+   /* ========== FOOTER ========== */
+footer {
+  background: linear-gradient(to right, #2b6cb0, #68d391);
+  color: #fff;
+  padding: 30px 20px;
+}
 
-    @media (max-width: 768px) {
-      .footer-container {flex-direction: column; text-align: center;}
-      .footer-map, .footer-text {width: 100%;}
-    }
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+  flex-wrap: nowrap;
+}
+
+.footer-map {
+  flex: 1;  /* Left side */
+  min-width: 250px;
+}
+
+.footer-text {
+  flex: 2; /* Right side */
+}
+
+.footer-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.footer-social a {
+  color: #fff;
+  margin-right: 12px;
+  font-size: 1.3rem;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffeb99;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-map,
+  .footer-text {
+    width: 100%;
+  }
+}
+
   </style>
 </head>
 
@@ -314,15 +351,22 @@
   </section>
 
   <!-- Gallery -->
-  <section id="gallery">
-    <h2>Our Gallery</h2>
-    <div class="gallery">
+ <section id="gallery">
+  <h2>Our Gallery</h2>
+  <div class="carousel-container">
+    <div class="carousel">
       <img src="lab1.avif" alt="Library Interior">
       <img src="lab2.avif" alt="Students Studying">
       <img src="lab3.jpg" alt="Reading Tables">
       <img src="lab4.jpg" alt="Bookshelf">
     </div>
-  </section>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</section>
+
 
   <!-- Contact -->
   <section id="contact">
@@ -336,23 +380,44 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.981417595058!2d85.04399727457232!3d25.295419830006735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2a1a3c4a13ef1%3A0x72c5b2c76d34b97f!2sCity%20Central%20Library!5e0!3m2!1sen!2sin!4v1730918400000!5m2!1sen!2sin"
-          width="100%" height="140" style="border:0; border-radius:10px;" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="footer-text">
-        <p class="footer-quote">“Learning never stops — even in the quiet corners of our village.”</p>
-        <p>© 2025 Village Central Library | Designed with ❤️ for Students</p>
-        <div class="footer-social">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        </div>
-      </div>
+<footer>
+  <div class="footer-container">
+
+    <!-- Map -->
+    <div class="footer-map">
+      <a href="https://www.google.com/maps/search/?api=1&query=25.4129831,83.8981369" target="_blank">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3634.692591323147!2d83.8981369!3d25.412983099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398df31208c2d6f7%3A0xa602d107e9849b49!2sDigital%20Seva%20Kendra!5e0!3m2!1sen!2sin!4v1732194869785!5m2!1sen!2sin" 
+          width="100%" height="160"
+          style="border:0; border-radius:12px; pointer-events:none;"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </a>
     </div>
-  </footer>
+
+    <!-- Footer Content -->
+    <div class="footer-content">
+      
+      <h3 class="footer-title">KP Library</h3>
+
+      <p class="footer-quote">Where education meets opportunity.</p>
+
+      <div class="footer-contact">
+        <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+        <p><i class="fa-solid fa-envelope"></i> kplibrary@example.com</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+
+      <p class="copy-txt">© 2025 KP Library | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
 
   <!-- Scripts -->
   <script>
